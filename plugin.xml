@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.wstorm.selectionplugin" version="0.2.3">
+    <name>Hide Selection Menu</name>
+    <description>Cordova plugin to hide native selection menu</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,device</keywords>
+    <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/event.js" target="js/event.js"/>
+
+  <js-module src="www/event.js" name="event">
+    <clobbers target="event" />
+  </js-module>
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="HideSelection">
+        <param name="android-package" value="com.wstorm.selectionplugin.HideSelection"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/HideSelection.java" target-dir="src/com/wstorm/selectionplugin/"/>
+  </platform>
+
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="HideSelection">
+        <param name="ios-package" value="HideSelection" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/HideSelection.h" target-dir="SelectionPlugin"/>
+    <source-file src="src/ios/HideSelection.m" target-dir="SelectionPlugin"/>
+  </platform>
+</plugin>
