@@ -11,8 +11,8 @@
 
   <asset src="www/event.js" target="js/event.js"/>
 
-  <js-module src="www/event.js" name="event">
-    <clobbers target="event" />
+  <js-module src="www/event.js" name="HideSelection`">
+    <clobbers target="HideSelection" />
   </js-module>
 
   <platform name="android">
