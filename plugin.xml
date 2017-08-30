@@ -9,10 +9,8 @@
     <engine name="cordova" version=">=3.4.0"/>
   </engines>
 
-  <asset src="www/hide-selection.js" target="js/hide-selection.js"/>
-
-  <js-module src="www/hide-selection.js" name="HideSelection`">
-    <clobbers target="HideSelection" />
+  <js-module src="www/hide-selection.js" name="hideSelection`">
+    <clobbers target="cordova.hideselection" />
   </js-module>
 
   <platform name="android">
