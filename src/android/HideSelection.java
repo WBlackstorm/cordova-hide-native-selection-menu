@@ -22,10 +22,15 @@ import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
+
 
 public class HideSelection extends CordovaPlugin {
 
     private CordovaWebView webView;
+    private ActionMode mActionMode = null;
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
