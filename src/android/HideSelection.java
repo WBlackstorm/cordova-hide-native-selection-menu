@@ -21,13 +21,7 @@ public class HideSelection extends CordovaPlugin {
       this.webView = webView;
       this.activity = cordova.getActivity();
 
-      this.webView.getView().setLongClickable(false);
-      this.webView.getView().setOnLongClickListener(new View.OnLongClickListener() {
-          @Override
-          public boolean onLongClick(View v) {
-              return true;
-          }
-      });
+      this.activity.unregisterForContextMenu(this.webView.getView());
 
       super.initialize(cordova, this.webView);
     }
