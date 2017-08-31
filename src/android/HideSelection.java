@@ -8,7 +8,7 @@ import android.util.Log;
 import android.app.Activity;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-
+import android.view.View;
 
 public class HideSelection extends CordovaPlugin {
 
@@ -22,7 +22,7 @@ public class HideSelection extends CordovaPlugin {
       this.activity = cordova.getActivity();
 
       this.webView.getView().setLongClickable(false);
-      this.webView.getView().setOnLongClickListener(new OnLongClickListener() {
+      this.webView.getView().setOnLongClickListener(new View.OnLongClickListener() {
           @Override
           public boolean onLongClick(View v) {
               return true;
