@@ -16,7 +16,7 @@ public class HideSelection extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
       super.initialize(cordova, webView);
       this.webView = webView;
-      unregisterForContextMenu(webView);
+      this.webView.setOnCreateContextMenuListener(null);
     }
 
     @Override
