@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.util.Log;
+import android.app.Activity;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
@@ -12,11 +13,13 @@ import android.webkit.WebView;
 public class HideSelection extends CordovaPlugin {
 
     private CordovaWebView webView;
+    private Activity activity;
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+      Log.i("Teste", "Passou initialize");
       this.webView = webView;
-      this.webView.getView().setOnCreateContextMenuListener(null);
+      this.activity = cordova.getActivity();
       super.initialize(cordova, this.webView);
     }
 
@@ -25,7 +28,7 @@ public class HideSelection extends CordovaPlugin {
 
         if (action.equals("hideMenu")) {
 
-            Log.i("Teste", "Passou");
+            Log.i("Teste", "Passou execute");
             this.webView.getView().setOnCreateContextMenuListener(null);
 
             String name = data.getString(0);
