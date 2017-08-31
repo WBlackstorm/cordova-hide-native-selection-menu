@@ -20,7 +20,15 @@ public class HideSelection extends CordovaPlugin {
       Log.i("Teste", "Passou initialize");
       this.webView = webView;
       this.activity = cordova.getActivity();
-      cordova.getActivity().unregisterForContextMenu(this.webView.getView());
+
+      this.webView.setLongClickable(false);
+      this.webView.setOnLongClickListener(new OnLongClickListener() {
+          @Override
+          public boolean onLongClick(View v) {
+              return true;
+          }
+      });
+
       super.initialize(cordova, this.webView);
     }
 
@@ -30,16 +38,15 @@ public class HideSelection extends CordovaPlugin {
         if (action.equals("hideMenu")) {
 
             Log.i("Teste", "Passou execute");
-            this.webView.getView().setOnCreateContextMenuListener(null);
 
             String name = data.getString(0);
             String message = "Hello, " + name;
-            callbackContext.success(message);
+            callbackContext.success("Sucesso");
 
             return true;
 
         } else {
-
+            callbackContext.error("Erro");
             return false;
 
         }
