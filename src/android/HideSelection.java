@@ -20,7 +20,7 @@ public class HideSelection extends CordovaPlugin {
       Log.i("Teste", "Passou initialize");
       this.webView = webView;
       this.activity = cordova.getActivity();
-      cordova.getActivity().unregisterForContextMenu(this.webView);
+      cordova.getActivity().unregisterForContextMenu(this.webView.getView());
       super.initialize(cordova, this.webView);
     }
 
