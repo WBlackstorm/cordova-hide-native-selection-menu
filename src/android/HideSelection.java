@@ -15,26 +15,26 @@ import android.view.MenuItem;
 
 public class HideSelection extends CordovaPlugin {
 
-    private CordovaWebView webView;
+    private CordovaWebView webViewObject;
     private Activity activity;
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
       Log.i("Teste", "Passou initialize");
-      this.webView = webView;
+      this.webViewObject = webView;
       this.activity = cordova.getActivity();
 
       this.activity.runOnUiThread(new Runnable() {
           @Override
           public void run() {
 
-            activity.unregisterForContextMenu(webView.getView());
+            activity.unregisterForContextMenu(webViewObject.getView());
             activity.closeContextMenu();
 
           }
       });
 
-      super.initialize(cordova, this.webView);
+      super.initialize(cordova, this.webViewObject);
     }
 
     @Override
