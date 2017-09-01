@@ -24,30 +24,37 @@ public class HideSelection extends CordovaPlugin {
       this.webView = webView;
       this.activity = cordova.getActivity();
 
-      this.activity.startActionMode(new ActionMode.Callback() {
-
+      this.activity.runOnUiThread(new Runnable() {
           @Override
-          public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-            Log.i("Teste", "Passou create");
-              return false;
-          }
+          public void run() {
 
-          @Override
-          public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-            Log.i("Teste", "Passou prepare");
-              return false;
-          }
+            this.activity.startActionMode(new ActionMode.Callback() {
 
-          @Override
-          public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-              return false;
-          }
+                @Override
+                public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+                  Log.i("Teste", "Passou create");
+                    return false;
+                }
 
-          @Override
-          public void onDestroyActionMode(ActionMode actionMode) {
-            Log.i("Teste", "Passou destroy");
-          }
+                @Override
+                public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+                  Log.i("Teste", "Passou prepare");
+                    return false;
+                }
 
+                @Override
+                public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
+                    return false;
+                }
+
+                @Override
+                public void onDestroyActionMode(ActionMode actionMode) {
+                  Log.i("Teste", "Passou destroy");
+                }
+
+            });
+
+          }
       });
 
       super.initialize(cordova, this.webView);
