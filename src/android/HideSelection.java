@@ -28,7 +28,7 @@ public class HideSelection extends CordovaPlugin {
           @Override
           public void run() {
 
-            startActionMode(new ActionMode.Callback() {
+            tihs.startActionMode(new ActionMode.Callback() {
 
                 @Override
                 public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
