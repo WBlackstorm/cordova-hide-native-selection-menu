@@ -28,11 +28,13 @@ public class HideSelection extends CordovaPlugin {
 
           @Override
           public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+            Log.i("Teste", "Passou create");
               return false;
           }
 
           @Override
           public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+            Log.i("Teste", "Passou prepare");
               return false;
           }
 
@@ -43,7 +45,7 @@ public class HideSelection extends CordovaPlugin {
 
           @Override
           public void onDestroyActionMode(ActionMode actionMode) {
-
+            Log.i("Teste", "Passou destroy");
           }
 
       });
