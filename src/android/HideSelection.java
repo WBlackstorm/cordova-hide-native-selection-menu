@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.view.View;
+import android.view.ActionMode;
 
 public class HideSelection extends CordovaPlugin {
 
