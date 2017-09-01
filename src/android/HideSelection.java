@@ -45,8 +45,6 @@ public class HideSelection extends CordovaPlugin {
 
       });
 
-      co
-
       super.initialize(cordova, this.webView);
     }
 
