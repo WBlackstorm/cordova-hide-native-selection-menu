@@ -21,20 +21,12 @@ public class HideSelection extends CordovaPlugin {
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
       Log.i("Teste", "Passou initialize");
+
+      super.initialize(cordova, webView);
+
       this.webViewObject = webView;
       this.activity = cordova.getActivity();
 
-      this.activity.runOnUiThread(new Runnable() {
-          @Override
-          public void run() {
-
-            activity.unregisterForContextMenu(webViewObject.getView());
-            activity.closeContextMenu();
-
-          }
-      });
-
-      super.initialize(cordova, this.webViewObject);
     }
 
     @Override
@@ -42,10 +34,17 @@ public class HideSelection extends CordovaPlugin {
 
         if (action.equals("hideMenu")) {
 
-            Log.i("Teste", "Passou execute");
+            this.activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
 
-            String name = data.getString(0);
-            String message = "Hello, " + name;
+                  activity.setLongClickable(false);
+                  activity.unregisterForContextMenu(webViewObject.getView());
+
+
+                }
+            });
+
             callbackContext.success("Sucesso");
 
             return true;
