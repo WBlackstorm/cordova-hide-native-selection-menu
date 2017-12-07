@@ -1,6 +1,6 @@
 {
   "name": "cordova-hide-native-selection-menu",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Cordova plugin to hide native selection menu",
   "cordova": {
     "id": "com.wstorm.selectionplugin",
