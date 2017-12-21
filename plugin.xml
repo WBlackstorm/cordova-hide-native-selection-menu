@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-ionic-hide-selection-menu" version="0.2.4">
+        id="cordova-ionic-hide-selection-menu" version="0.3.0">
     <name>Hide Selection Menu</name>
     <description>Cordova plugin to hide native selection menu</description>
     <license>Apache 2.0</license>
