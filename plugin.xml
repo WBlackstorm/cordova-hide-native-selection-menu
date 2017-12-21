@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-ionic-hide-selection-menu" version="0.3.0">
+        id="cordova-ionic-hide-selection-menu" version="0.3.1">
     <name>Hide Selection Menu</name>
     <description>Cordova plugin to hide native selection menu</description>
     <license>Apache 2.0</license>
@@ -32,7 +32,5 @@
 
     <header-file src="src/ios/HideSelection.h" target-dir="SelectionPlugin"/>
     <source-file src="src/ios/HideSelection.m" target-dir="SelectionPlugin"/>
-    <header-file src="src/ios/CDVViewController+KongrosViewController.h" target-dir="SelectionPlugin"/>
-    <source-file src="src/ios/CDVViewController+KongrosViewController.m" target-dir="SelectionPlugin"/>
   </platform>
 </plugin>

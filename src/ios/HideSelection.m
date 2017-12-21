@@ -3,17 +3,27 @@
 
 @implementation HideSelection
 
+- (void)pluginInitialize
+{
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(destroyMenu:) name:UIMenuControllerWillShowMenuNotification object:nil];
+
+}
+
 - (void)hideMenu:(CDVInvokedUrlCommand *)command {
 
-  UIMenuController *theMenu = [UIMenuController sharedMenuController];
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@""];
 
-  [UIMenuController sharedMenuController].menuVisible = NO;
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 
-  //[[UIMenuController sharedMenuController] setTargetRect:CGRectMake(0, 0, 1, 1) inView:self.extraView];
+}
 
-  CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@""];
+- (void)destroyMenu: (id)sender {
 
-  [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuVisible:NO];
+    [menu performSelector:@selector(setMenuVisible:) withObject:[NSNumber numberWithBool:NO] afterDelay:0.];
+
 }
 
 @end
